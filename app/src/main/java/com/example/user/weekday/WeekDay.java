@@ -1,5 +1,6 @@
 package com.example.user.weekday;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -19,7 +20,7 @@ public class WeekDay extends AppCompatActivity {
     private int year;
     private int century;
     private int d;
-    String theDAY;
+    public String theDAY;
     private EditText et_day;
     private EditText et_month;
     private EditText et_year;
@@ -91,9 +92,19 @@ public class WeekDay extends AppCompatActivity {
         else if (d == 6)
             theDAY = "Friday";
 
-        gg = (TextView) findViewById(R.id.textView4);
-        gg.setText((theDAY));
+
+        //gg = (TextView) findViewById(R.id.textView4);
+        //gg.setText((theDAY));
 
 
+        //startActivity(new Intent(this.getApplication(), WeekDayActivity2.class));
+
+        // Intent to go to the second activity
+        Intent i = new Intent(this, WeekDayActivity2.class);
+
+        // Put attachment data along with the intent
+        i.putExtra("message", theDAY);
+
+        startActivity(i);
     }
 }
